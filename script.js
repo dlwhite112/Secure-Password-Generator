@@ -11,13 +11,13 @@ var special = ["`","!","@","#","$","%","^","&","*"];
 // // display password
 
 // // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
+  passwordText.value = password;
 
-// }
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", runGenerator);
@@ -39,10 +39,21 @@ function runGenerator() {
     }
   
   
-  var up = confirm("Include Uppercase characters?")
+  var up = confirm("Include Uppercase characters?");
+    if (up === true) {
+      
+    }
 
-
-  var low = confirm("Include Lowercase characters?")
-  var num = confirm("Include Numerical characters?")
-  var spec = confirm("Include Special characters?")
+  var low = confirm("Include Lowercase characters?");
+    if (low === true) {
+      
+  }
+  var num = confirm("Include Numerical characters?");
+    if (num === true) {
+      
+  }
+  var spec = confirm("Include Special characters?");
+    if (spec === true) {
+      
+  }
 }
