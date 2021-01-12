@@ -1,5 +1,5 @@
-# Project Name
-> Project Blurb
+# Secure Password Generator
+> Create a sercure password app that allows employees to create a password fitting parameters selected by user.
 
 ## Table of contents
 * [General info](#general-info)
