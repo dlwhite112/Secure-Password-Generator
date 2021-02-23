@@ -144,4 +144,4 @@ function runGenerator() {
 
   }
 }
-return runGenerator;
+runGenerator();
