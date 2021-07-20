@@ -13,7 +13,7 @@ body,
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #f9fbfd;
 }
 
@@ -118,6 +118,30 @@ button[disabled] {
   overflow: hidden;
 }
 
+.title {
+  margin: auto;
+  font-weight: 100;
+  font-size: 5rem;
+  margin-top: 50px;
+  animation: bounce 1s infinite alternate;
+  -webkit-animation: bounce 1s infinite alternate;
+}
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
+@-webkit-keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;

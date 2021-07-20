@@ -90,8 +90,8 @@ var special = [
 // // display password
 
 // // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
+function writePassword(val) {
+  var password = val;
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -103,13 +103,16 @@ generateBtn.addEventListener("click", runGenerator);
 function runGenerator() {
   alert("Time to create your password!");
 
-  //Password correct length function
+  var generatedPassword = "";
+  var charactersSelected = [];
 
+  // These prompts are to get the requirements for the password that is to be generated.
   var length = parseInt(
     prompt("Choose Password Length *must be between 8 - 128 characters*")
   );
   if (isNaN(length) === true) {
-    alert("Hmmm... password needs to be a number");
+    alert("Hmmm... length should be a number between 8 - 128.");
+    return;
   }
   if (length < 8) {
     alert(
@@ -124,8 +127,8 @@ function runGenerator() {
     return;
   }
 
+  // these variables will be used to decide what happens based off of the answers from the previous questions.
   var getUpCase = confirm("Include Uppercase characters?");
-
   var getLowCase = confirm("Include Lowercase characters?");
   var getNum = confirm("Include Numerical characters?");
   var getSpec = confirm("Include Special characters?");
@@ -138,10 +141,25 @@ function runGenerator() {
   ) {
     alert("There needs to be at least one character type!");
     return;
+  } else {
+    let randomIndex = 0;
+    if (getUpCase) {
+      charactersSelected = charactersSelected.concat(upCase);
+    }
+    if (getLowCase) {
+      charactersSelected = charactersSelected.concat(lowCase);
+    }
+    if (getSpec) {
+      charactersSelected = charactersSelected.concat(special);
+    }
+    if (getNum) {
+      charactersSelected = charactersSelected.concat(numbers);
+    }
+    while (generatedPassword.length < length) {
+      randomIndex = Math.floor(Math.random() * charactersSelected.length);
+      generatedPassword += charactersSelected[randomIndex];
+    }
   }
-  var passwordCriteria = {
-    length: length,
-
-  }
+  return writePassword(generatedPassword);
 }
 runGenerator();
